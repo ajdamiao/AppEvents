@@ -1,6 +1,7 @@
 package com.example.appevents.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,8 +29,10 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                 val date = "${c[Calendar.DAY_OF_MONTH]}/${c[Calendar.MONTH]}/${c[Calendar.YEAR]}"
                 val geocoder = Geocoder(context)
                 val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+                val eventAddress = addresses[0].getAddressLine(0)
 
-                binding.txtEventLocation.text = addresses[0].getAddressLine(0)
+
+                binding.txtEventLocation.text = eventAddress
                 binding.txtEventName.text = title
                 binding.txtEventDate.text = date
                 binding.txtEventDescription.text = description
@@ -39,8 +42,19 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                     bundle.putString("id", id)
                     //Navigation.findNavController(itemView).navigate(R.id.eventDetailsFragment, bundle)
                 }
+
+                holder.binding.btnShare.setOnClickListener {
+                    shareEvent(eventAddress, price)
+                }
             }
         }
+    }
+
+    private fun shareEvent(eventAddress: String, eventPrice: String) {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, "Veja só esse evento em $eventAddress por R$$eventPrice")
+        sharingIntent.type = "text/plain"
+        context.startActivity(Intent.createChooser(sharingIntent, "Compartilhar Evento"))
     }
 
     override fun getItemCount() = events.size
