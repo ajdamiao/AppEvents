@@ -10,4 +10,14 @@
         android:name="com.example.appevents.view.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/eventDetailsFragment"
+        android:name="com.example.appevents.view.EventDetailsFragment"
+        android:label="fragment_event_details"
+        tools:layout="@layout/fragment_event_details" />
+    <fragment
+        android:id="@+id/checkInFragment"
+        android:name="com.example.appevents.view.CheckInFragment"
+        android:label="fragment_check_in"
+        tools:layout="@layout/fragment_check_in" />
 </navigation>
