@@ -3,6 +3,7 @@ package com.example.appevents.view
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appevents.R
@@ -10,7 +11,7 @@ import com.example.appevents.adapter.EventsAdapter
 import com.example.appevents.data.repository.EventRepository
 import com.example.appevents.databinding.FragmentHomeBinding
 import com.example.appevents.model.Event
-import com.example.appevents.viewmodel.HomeViewModel
+import com.example.appevents.viewmodeltest.HomeViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding
@@ -19,6 +20,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
+
+        (activity as AppCompatActivity).supportActionBar?.show()
+
         homeViewModel = ViewModelProvider(this, HomeViewModel.HomeViewModelFactory(EventRepository())).get(HomeViewModel::class.java)
         observerEvent()
         homeViewModel.getEvent()
@@ -35,6 +39,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setupCard(events: ArrayList<Event>) {
+        binding.progressBar2.visibility = View.GONE
+        binding.rviewEventsCard.visibility = View.VISIBLE
         binding.rviewEventsCard.layoutManager = LinearLayoutManager(requireContext())
         binding.rviewEventsCard.adapter = EventsAdapter(events, requireContext())
     }

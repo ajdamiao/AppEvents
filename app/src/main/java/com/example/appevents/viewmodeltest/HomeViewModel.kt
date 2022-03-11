@@ -1,4 +1,4 @@
-package com.example.appevents.viewmodel
+package com.example.appevents.viewmodeltest
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

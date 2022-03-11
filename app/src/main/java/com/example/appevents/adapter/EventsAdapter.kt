@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appevents.R
@@ -25,6 +26,9 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
     override fun onBindViewHolder(holder: EventsAdapter.EventsViewHolder, position: Int) {
         with(holder) {
             with(events[position]) {
+
+                holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context,R.anim.rview_animation)
+
                 val c = Calendar.getInstance()
                 c.timeInMillis = date
 
