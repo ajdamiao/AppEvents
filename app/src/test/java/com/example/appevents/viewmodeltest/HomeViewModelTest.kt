@@ -2,6 +2,7 @@ package com.example.appevents.viewmodeltest
 
 import androidx.lifecycle.Observer
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.jupiter.api.Test
 import com.example.appevents.data.EventsApi
 import com.example.appevents.data.repository.EventRepository
 import com.example.appevents.model.Event
@@ -16,9 +17,7 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
-import org.junit.Test
 import org.junit.runner.RunWith
-
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
