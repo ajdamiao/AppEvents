@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     private fun setUpNavigation() {
         navController.addOnDestinationChangedListener { _: NavController, nd: NavDestination, _: Bundle? ->
             if (nd.id == R.id.homeFragment) {
-
                 supportActionBar?.setDisplayHomeAsUpEnabled(false)
             } else {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)

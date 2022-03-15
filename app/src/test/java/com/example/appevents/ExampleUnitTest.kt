@@ -1,8 +1,8 @@
 package com.example.appevents
 
 import com.example.appevents.util.Util
-import org.junit.jupiter.api.Test
 import org.junit.Assert.*
+import org.junit.Test
 
 class UnitTest {
     @Test

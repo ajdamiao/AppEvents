@@ -1,5 +1,6 @@
 package com.example.appevents.data.repository
 
+import android.os.Build
 import com.example.appevents.BuildConfig
 import com.example.appevents.data.EventsApi
 import com.example.appevents.model.CheckIn
@@ -11,11 +12,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class EventRepository {
+    private lateinit var baseUrl: String
 
     private fun makeRequest(): EventsApi {
+        if(Build.VERSION.SDK_INT <= 21){
+            baseUrl = BuildConfig.Base_URL19
+        }else {
+            baseUrl = BuildConfig.Base_URL
+        }
+
         return Retrofit
             .Builder()
-            .baseUrl((BuildConfig.Base_URL))
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(EventsApi::class.java)

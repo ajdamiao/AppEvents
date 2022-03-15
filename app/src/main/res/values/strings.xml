@@ -19,4 +19,6 @@
     <string name="success">Sucesso</string>
     <string name="success_checkin">Seu Check-In para o evento foi\nRealizado com Sucesso.</string>
     <string name="error_checkin">Não foi possivel realizar o Check-In\nTente novamente.</string>
+    <string name="txt_blank_state_event_list">Não foi possível carregar lista de eventos</string>
+    <string name="txt_event_price">R$</string>
 </resources>

@@ -33,7 +33,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             when(it){
                 is ArrayList<Event> -> setupCard(it)
 
-                else ->  println("ERROR, $it")
+                else -> {
+                    binding.rviewEventsCard.visibility = View.GONE
+                    binding.progressBar2.visibility = View.GONE
+                    binding.txtBlankState.visibility = View.VISIBLE
+                }
             }
         }
     }
