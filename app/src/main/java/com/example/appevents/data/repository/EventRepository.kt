@@ -15,10 +15,10 @@ class EventRepository {
     private lateinit var baseUrl: String
 
     private fun makeRequest(): EventsApi {
-        if(Build.VERSION.SDK_INT <= 21){
-            baseUrl = BuildConfig.Base_URL19
+        baseUrl = if(Build.VERSION.SDK_INT <= 21){
+            BuildConfig.Base_URL19
         }else {
-            baseUrl = BuildConfig.Base_URL
+            BuildConfig.Base_URL
         }
 
         return Retrofit

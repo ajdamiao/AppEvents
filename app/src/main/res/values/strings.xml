@@ -3,8 +3,6 @@
     <string name="txt_event_list">Lista de eventos</string>
     <string name="more_event_details">Mostrar mais</string>
     <string name="less_event_details">Mostrar menos</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="label_email">Email</string>
     <string name="label_evento">Evento</string>
     <string name="txt_email">Email</string>
@@ -14,11 +12,11 @@
     <string name="accept">OK</string>
     <string name="error">Error</string>
     <string name="invalid_name_email">Email ou nome inválido.</string>
-
-
     <string name="success">Sucesso</string>
     <string name="success_checkin">Seu Check-In para o evento foi\nRealizado com Sucesso.</string>
     <string name="error_checkin">Não foi possivel realizar o Check-In\nTente novamente.</string>
     <string name="txt_blank_state_event_list">Não foi possível carregar lista de eventos</string>
     <string name="txt_event_price">R$</string>
+    <string name="text_toolbar_event_list">Detalhes do evento</string>
+    <string name="text_toolbar_check_in">Check-In</string>
 </resources>

@@ -32,7 +32,7 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                 val c = Calendar.getInstance()
                 c.timeInMillis = date
 
-                val date = util.dateFormater(date)
+                val date = util.dateFormatter(date)
                 val eventAddress = util.locationGetter(latitude, longitude, context)
 
                 binding.txtEventLocation.text = eventAddress
