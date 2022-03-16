@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@color/text_color"
-        android:text="@string/txt_event_list"
+        android:text="@string/app_name"
         android:textSize="21sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="173dp"
