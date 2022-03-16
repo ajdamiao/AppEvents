@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="cd_img_location">Ícone do marcador de localização do evento</string>
+    <string name="cd_img_calendar">Ícone calendário</string>
+    <string name="cd_img_clock">Ícone relógio</string>
+    <string name="cd_btn_checkin">Botão check-in</string>
+    <string name="cd_btn_share">Botão Compartilhar</string>
+    <string name="cd_img_thumb">Thumbnail do evento</string>
+    <string name="cd_img_price">Ícone da moeda corrente</string>
+    <string name="cd_btn_checkin_confirm">Botão confirmar check-in</string>
+
+</resources>
