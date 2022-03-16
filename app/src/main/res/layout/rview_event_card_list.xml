@@ -5,16 +5,16 @@
     android:id="@+id/btnEvent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="@dimen/small_margin"
     android:background="@drawable/shape_event_card">
 
         <TextView
             android:id="@+id/txtEventName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/large_margin"
             android:maxLines="2"
             android:textColor="@color/text_color"
             android:textSize="@dimen/default_text_size"
@@ -29,8 +29,8 @@
             android:id="@+id/txtEventDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/large_margin"
             android:maxLines="2"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
@@ -40,10 +40,10 @@
             tools:text="Event Description" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgEventLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/default_margin"
             app:layout_constraintStart_toStartOf="@+id/txtEventDescription"
             app:layout_constraintTop_toBottomOf="@+id/txtEventDescription"
             app:srcCompat="@drawable/ic_location"
@@ -53,24 +53,24 @@
             android:id="@+id/txtEventLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="23dp"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/large_margin"
             android:maxLines="1"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/imgEventLocation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/imgEventLocation"
+            app:layout_constraintTop_toTopOf="@+id/imgEventLocation"
             tools:text="Avenida Ipiranga" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgEventCalendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintStart_toStartOf="@+id/imgEventLocation"
+            app:layout_constraintTop_toBottomOf="@+id/imgEventLocation"
             app:srcCompat="@drawable/ic_calendar"
             android:contentDescription="@string/cd_img_calendar" />
 
@@ -78,19 +78,19 @@
         android:id="@+id/txtEventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/small_margin"
         android:maxLines="1"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/imgEventCalendar"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        tools:text="12 junho 2020" />
+        app:layout_constraintStart_toEndOf="@+id/imgEventCalendar"
+        app:layout_constraintTop_toTopOf="@+id/imgEventCalendar"
+        tools:text="12/03/2020" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/txtEventDate"
@@ -104,32 +104,32 @@
             android:id="@+id/txtEventTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/small_margin"
             android:maxLines="1"
             android:text="12:30 PM"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintBottom_toBottomOf="@+id/imgClock"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+            app:layout_constraintStart_toEndOf="@id/imgClock"
+            app:layout_constraintTop_toTopOf="@+id/imgClock" />
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/materialDivider"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/default_margin"
             android:background="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@id/imgClock" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnCheckIn"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -138,12 +138,12 @@
         android:contentDescription="@string/cd_btn_checkin">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtCheckIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Check-In"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text="@string/txt_check_in"
             android:textColor="@color/green"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -152,13 +152,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgCheckIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintBottom_toBottomOf="@+id/txtCheckIn"
+            app:layout_constraintEnd_toStartOf="@+id/txtCheckIn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/txtCheckIn"
             app:srcCompat="@drawable/ic_check" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -166,9 +166,9 @@
     <View
         android:id="@+id/view"
         android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="@dimen/match_constraint"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
         android:background="@color/gray"
         app:layout_constraintBottom_toBottomOf="@+id/btnCheckIn"
         app:layout_constraintStart_toEndOf="@id/guideline"
@@ -176,7 +176,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnShare"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -186,10 +186,10 @@
 
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/txtShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Compartilhar"
+            android:text="@string/share"
             android:textColor="@color/green"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -200,13 +200,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imgShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintBottom_toBottomOf="@+id/txtShare"
+            app:layout_constraintEnd_toStartOf="@+id/txtShare"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/txtShare"
             app:srcCompat="@drawable/ic_share" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

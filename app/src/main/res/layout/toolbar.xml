@@ -18,7 +18,7 @@
         android:layout_gravity="center"
         android:textColor="@color/text_color"
         android:text="@string/app_name"
-        android:textSize="21sp"
+        android:textSize="@dimen/default_text_size"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="173dp"
         tools:layout_editor_absoluteY="18dp" />

@@ -10,6 +10,8 @@
     <string name="label_preco">Preço</string>
     <string name="label_checkin">Check-in</string>
     <string name="accept">OK</string>
+    <string name="share">Compartilhar</string>
+    <string name="txt_check_in">Check-In</string>
     <string name="error">Error</string>
     <string name="invalid_name_email">Email ou nome inválido.</string>
     <string name="success">Sucesso</string>
