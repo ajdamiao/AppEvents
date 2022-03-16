@@ -12,10 +12,18 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_eventDetailsFragment"
-            app:destination="@id/eventDetailsFragment" />
+            app:destination="@id/eventDetailsFragment"
+            app:enterAnim="@anim/slide_out"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/slide_out"
+            app:popExitAnim="@anim/fade_in" />
         <action
             android:id="@+id/action_homeFragment_to_checkInFragment"
-            app:destination="@id/checkInFragment" />
+            app:destination="@id/checkInFragment"
+            app:enterAnim="@anim/slide_out"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/slide_out"
+            app:popExitAnim="@anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
@@ -27,7 +35,7 @@
             app:argType="string" />
         <action
             android:id="@+id/action_eventDetailsFragment_to_checkInFragment"
-            app:destination="@id/checkInFragment" />
+            app:destination="@id/checkInFragment"/>
     </fragment>
     <fragment
         android:id="@+id/checkInFragment"
