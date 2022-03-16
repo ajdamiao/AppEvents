@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appevents.R
 import com.example.appevents.databinding.RviewEventCardListBinding
 import com.example.appevents.model.Event
 import com.example.appevents.util.Util
+import com.example.appevents.view.HomeFragmentDirections
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -41,9 +44,9 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                 binding.txtEventDescription.text = description
 
                 holder.itemView.setOnClickListener {
-                    val bundle = Bundle()
-                    bundle.putString("id", id)
-                    Navigation.findNavController(itemView).navigate(R.id.eventDetailsFragment, bundle)
+
+                    val directions = HomeFragmentDirections.actionHomeFragmentToEventDetailsFragment(id)
+                    Navigation.findNavController(itemView).navigate(directions)
                 }
 
                 holder.binding.btnShare.setOnClickListener {
@@ -51,11 +54,8 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                 }
 
                 holder.binding.btnCheckIn.setOnClickListener {
-                    val bundle = Bundle()
-                    bundle.putString("eventName", title)
-                    bundle.putString("eventPrice", price)
-                    bundle.putString("eventID", id)
-                    Navigation.findNavController(itemView).navigate(R.id.checkInFragment, bundle)
+                    val directions = HomeFragmentDirections.actionHomeFragmentToCheckInFragment(title,price,id)
+                    Navigation.findNavController(itemView).navigate(directions)
                 }
             }
         }

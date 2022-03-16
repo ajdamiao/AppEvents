@@ -41,12 +41,12 @@ class HomeViewModel(private val repository: EventRepository): ViewModel() {
 
     fun doCheckIn(checkIn: CheckIn) {
         CoroutineScope(Dispatchers.Main).launch {
-            val checkIn = withContext(Dispatchers.Default) {
+            val checkInResponse = withContext(Dispatchers.Default) {
                 repository.checkInEvent(checkIn)
             }
             try {
-                if(checkIn.code() != 200 || checkIn.code() != 204) {
-                    checkInLiveData.value = checkIn.isSuccessful
+                if(checkInResponse.code() != 200 || checkInResponse.code() != 204) {
+                    checkInLiveData.value = checkInResponse.isSuccessful
                 }
             }catch (exception: Exception) {
                 when(exception) {

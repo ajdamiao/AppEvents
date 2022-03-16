@@ -9,20 +9,48 @@
         android:id="@+id/homeFragment"
         android:name="com.example.appevents.view.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_eventDetailsFragment"
+            app:destination="@id/eventDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_checkInFragment"
+            app:destination="@id/checkInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
         android:name="com.example.appevents.view.EventDetailsFragment"
         android:label="fragment_event_details"
-        tools:layout="@layout/fragment_event_details" />
+        tools:layout="@layout/fragment_event_details" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_checkInFragment"
+            app:destination="@id/checkInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkInFragment"
         android:name="com.example.appevents.view.CheckInFragment"
         android:label="fragment_check_in"
-        tools:layout="@layout/fragment_check_in" />
+        tools:layout="@layout/fragment_check_in" >
+        <argument
+            android:name="eventName"
+            app:argType="string" />
+        <argument
+            android:name="eventPrice"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.appevents.view.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
