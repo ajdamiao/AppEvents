@@ -12,7 +12,8 @@
     <color name="black">#000000</color>
     <color name="gray_20">#333333</color>
     <color name="green">#06D6A0</color>
-    <color name="blue">#1400FF</color>
+    <color name="blue">#0080ff</color>
+    <color name="dark_blue">#0000b3</color>
     <color name="red">#F45B69</color>
     <color name="gray">#AEAEAE</color>
     <color name="gray_0">#00E5E5E5</color>

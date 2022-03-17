@@ -17,8 +17,8 @@ import retrofit2.HttpException
 import java.lang.Exception
 
 class HomeViewModel(private val repository: EventRepository): ViewModel() {
-    val eventLiveData = MutableLiveData<ArrayList<Event>>()
-    val eventDetailsLiveData = MutableLiveData<Event>()
+    val eventLiveData = MutableLiveData<Any>()
+    val eventDetailsLiveData = MutableLiveData<Any>()
     val checkInLiveData = MutableLiveData<Any>()
 
     fun getEvent() {
@@ -26,7 +26,19 @@ class HomeViewModel(private val repository: EventRepository): ViewModel() {
             val events = withContext(Dispatchers.Default) {
                 repository.getEvent()
             }
-            eventLiveData.value = events
+            try {
+                eventLiveData.value = events
+            }catch (exception: Exception) {
+                when(exception) {
+                    is HttpException -> {
+                        val jsonParsed = JSONObject(exception.response()?.errorBody().toString())
+                        val gson = Gson()
+                        val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
+
+                        eventLiveData.value = cException
+                    }
+                }
+            }
         }
     }
 
@@ -35,7 +47,19 @@ class HomeViewModel(private val repository: EventRepository): ViewModel() {
             val eventDetail = withContext(Dispatchers.Default) {
                 repository.getEventDetails(id)
             }
-            eventDetailsLiveData.value = eventDetail
+            try {
+                eventDetailsLiveData.value = eventDetail
+            }catch (exception: Exception) {
+                when(exception) {
+                    is HttpException -> {
+                        val jsonParsed = JSONObject(exception.response()?.errorBody().toString())
+                        val gson = Gson()
+                        val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
+
+                        eventDetailsLiveData.value = cException
+                    }
+                }
+            }
         }
     }
 

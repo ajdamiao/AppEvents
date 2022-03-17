@@ -10,6 +10,7 @@ import com.example.appevents.R
 import com.example.appevents.adapter.EventsAdapter
 import com.example.appevents.data.repository.EventRepository
 import com.example.appevents.databinding.FragmentHomeBinding
+import com.example.appevents.exception.CustomException
 import com.example.appevents.model.Event
 import com.example.appevents.viewmodeltest.HomeViewModel
 
@@ -31,7 +32,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun observerEvent() {
         homeViewModel.eventLiveData.observe(viewLifecycleOwner) {
             when(it){
-                is ArrayList<Event> -> setupCard(it)
+                is ArrayList<*> -> setupCard(it)
+
+                is CustomException -> {
+                    binding.rviewEventsCard.visibility = View.GONE
+                    binding.progressBar2.visibility = View.GONE
+                    binding.txtBlankState.visibility = View.VISIBLE
+                }
 
                 else -> {
                     binding.rviewEventsCard.visibility = View.GONE
@@ -42,10 +49,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private fun setupCard(events: ArrayList<Event>) {
+    private fun setupCard(events: ArrayList<*>) {
         binding.progressBar2.visibility = View.GONE
         binding.rviewEventsCard.visibility = View.VISIBLE
         binding.rviewEventsCard.layoutManager = LinearLayoutManager(requireContext())
-        binding.rviewEventsCard.adapter = EventsAdapter(events, requireContext())
+        binding.rviewEventsCard.adapter = EventsAdapter(events as ArrayList<Event>, requireContext())
     }
 }
