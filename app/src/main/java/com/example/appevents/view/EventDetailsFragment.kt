@@ -22,6 +22,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     private var eventName = String()
     private var eventPrice = String()
     private var eventID = String()
+    private var eventImage = String()
     private val util = Util()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,7 +49,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         }
 
         binding.btnCheckIn.setOnClickListener {
-            val directions = EventDetailsFragmentDirections.actionEventDetailsFragmentToCheckInFragment(eventName,eventPrice,eventID)
+            val directions = EventDetailsFragmentDirections.actionEventDetailsFragmentToCheckInFragment(eventName,eventPrice,eventID, eventImage)
             findNavController().navigate(directions)
         }
     }
@@ -59,6 +60,12 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
                 is Event -> {
                     setupEventInfo(it)
                     showContent()
+                }
+
+                else -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.eventContent.visibility = View.GONE
+                    binding.containerActions.visibility = View.GONE
                 }
             }
         }
@@ -75,16 +82,17 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         eventPrice = response.price
         eventName = response.title
         eventID = response.id
+        eventImage = response.image
 
         binding.txtEventTitle.text = eventName
         binding.txtEventDescription.text = response.description
-        binding.txtEventPrice.text = eventPrice
+        binding.txtEventPrice.text = String.format("%s %s", getString(R.string.txt_event_price), eventPrice)
         binding.txtEventDate.text = util.dateFormatter(response.date)
         binding.txtEventLocation.text = eventAddress
 
         Glide
             .with(requireView())
-            .load(response.image)
+            .load(eventImage)
             .placeholder(R.drawable.ic_image_not_found)
             .into(binding.imgEvent)
     }

@@ -8,7 +8,7 @@
     <string name="txt_email">Email</string>
     <string name="txt_name">Nome</string>
     <string name="label_preco">Preço</string>
-    <string name="label_checkin">Check-in</string>
+    <string name="label_checkIn">Check-in</string>
     <string name="accept">OK</string>
     <string name="share">Compartilhar</string>
     <string name="txt_check_in">Check-In</string>

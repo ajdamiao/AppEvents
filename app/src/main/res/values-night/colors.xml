@@ -21,10 +21,10 @@
     <color name="purple_velvet">#3b2942</color>
     <color name="purple_light">#5b4d6a</color>
 
-    <color name="background_color">@color/purple_velvet</color>
+    <color name="background_color">#191919</color>
     <color name="splash_text_color">@color/gray</color>
     <color name="icons_color">#999999</color>
-    <color name="card_background_color">@color/purple_light</color>
-    <color name="text_color">@color/white</color>
+    <color name="card_background_color">#323232</color>
+    <color name="text_title_color">@color/white</color>
 
 </resources>

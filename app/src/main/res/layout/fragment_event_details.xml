@@ -12,6 +12,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/progressBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,12 +36,12 @@
                 android:id="@+id/imgEvent"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
                 android:background="@color/white"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_image_not_found"
                 android:contentDescription="@string/cd_img_thumb" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,6 +89,7 @@
 
                     <Button
                         android:id="@+id/btnShowEventDescription"
+                        android:backgroundTint="@color/text_extra_color"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"

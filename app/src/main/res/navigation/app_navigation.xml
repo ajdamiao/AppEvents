@@ -24,6 +24,15 @@
             app:exitAnim="@anim/fade_in"
             app:popEnterAnim="@anim/slide_out"
             app:popExitAnim="@anim/fade_in" />
+        <argument
+            android:name="eventName"
+            app:argType="string" />
+        <argument
+            android:name="eventPrice"
+            app:argType="string" />
+        <argument
+            android:name="eventId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
@@ -50,6 +59,9 @@
             app:argType="string" />
         <argument
             android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="eventImage"
             app:argType="string" />
     </fragment>
     <fragment

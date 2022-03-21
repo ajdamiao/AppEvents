@@ -21,12 +21,16 @@
     <color name="blue_light">#24FFF2</color>
     <color name="purple_velvet">#3b2942</color>
     <color name="purple_light">#5b4d6a</color>
+    <color name="dark_green">#008000</color>
+    <color name="light_green">#00a000</color>
 
 
-    <color name="background_color">@color/gray</color>
+    <color name="background_color">@color/white</color>
     <color name="splash_text_color">@color/purple_velvet</color>
     <color name="icons_color">#999999</color>
-    <color name="card_background_color">@color/white_70</color>
-    <color name="text_color">@color/black</color>
+    <color name="card_background_color">#e5e5e5</color>
+    <color name="text_title_color">@color/black</color>
+    <color name="text_extra_color">#7f7f7f</color>
+    <color name="check_in_button">@color/black</color>
 
 </resources>

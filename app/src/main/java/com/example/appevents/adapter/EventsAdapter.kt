@@ -1,13 +1,10 @@
 package com.example.appevents.adapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appevents.R
 import com.example.appevents.databinding.RviewEventCardListBinding
@@ -46,15 +43,6 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                 holder.itemView.setOnClickListener {
 
                     val directions = HomeFragmentDirections.actionHomeFragmentToEventDetailsFragment(id)
-                    Navigation.findNavController(itemView).navigate(directions)
-                }
-
-                holder.binding.btnShare.setOnClickListener {
-                    util.shareEvent(eventAddress,price,context)
-                }
-
-                holder.binding.btnCheckIn.setOnClickListener {
-                    val directions = HomeFragmentDirections.actionHomeFragmentToCheckInFragment(title,price,id)
                     Navigation.findNavController(itemView).navigate(directions)
                 }
             }

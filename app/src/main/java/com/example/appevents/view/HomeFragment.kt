@@ -1,9 +1,9 @@
 package com.example.appevents.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appevents.R
@@ -13,6 +13,7 @@ import com.example.appevents.databinding.FragmentHomeBinding
 import com.example.appevents.exception.CustomException
 import com.example.appevents.model.Event
 import com.example.appevents.viewmodeltest.HomeViewModel
+
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding

@@ -36,7 +36,7 @@ class EventRepository {
             .create(EventsApi::class.java)
     }
 
-    suspend fun getEvent(): ArrayList<Event> {
+    suspend fun getEvent(): Response<ArrayList<Event>> {
         return withContext(Dispatchers.IO) {
             makeRequest().getEvents()
         }

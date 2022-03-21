@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import com.example.appevents.MainActivity
 import com.example.appevents.R
 import com.example.appevents.data.repository.EventRepository
@@ -31,19 +32,31 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
         homeViewModel = ViewModelProvider(this, HomeViewModel.HomeViewModelFactory(EventRepository())).get(HomeViewModel::class.java)
         checkInListener()
 
-        val eventName = requireArguments().getString("eventName")
-        val eventPrice = requireArguments().getString("eventPrice")
-        val eventId = requireArguments().getString("eventID")
 
-        binding.btnCheckIn.setOnClickListener {
+        val eventName = requireArguments().getString("eventName")
+        val eventImage = requireArguments().getString("eventImage")
+        val eventPrice = requireArguments().getString("eventPrice")
+        val eventId = requireArguments().getString("id")
+
+        /*binding.btnCheckIn.setOnClickListener {
             if (eventId != null) {
                 doCheckIn(eventId)
                 util.hideKeyboard(requireContext(),requireView())
             }
         }
+*/
 
-        binding.txtEventNameCheckIn.text = eventName
-        binding.txtEventPriceCheckIn.text = String.format("%s %s", getString(R.string.txt_event_price), eventPrice)
+        setupEventCardInfo(eventName.toString(), eventPrice.toString(), eventImage.toString())
+    }
+
+    private fun setupEventCardInfo(eventName: String, eventPrice: String, eventImage: String) {
+        binding.checkInCard.txtCheckInEventName.text = eventName
+        binding.checkInCard.txtCheckInEventPrice.text = String.format("%s %s", getString(R.string.txt_event_price), eventPrice)
+        Glide
+            .with(requireView())
+            .load(eventImage)
+            .placeholder(R.drawable.ic_image_not_found)
+            .into(binding.checkInCard.imgCheckInEvent)
     }
 
     private fun checkInListener() {
@@ -91,7 +104,7 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
     }
 
     private fun doCheckIn(eventID: String) {
-        val email = binding.inputEmail.text.toString()
+        /*val email = binding.inputEmail.text.toString()
         val name = binding.inputName.text.toString()
 
         if(util.isEmailValid(email) && util.isNameValid(name)) {
@@ -99,6 +112,6 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
         }
         else {
             inputErrorDialog()
-        }
+        }*/
     }
 }

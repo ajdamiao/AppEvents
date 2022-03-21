@@ -26,19 +26,12 @@ class HomeViewModel(private val repository: EventRepository): ViewModel() {
             val events = withContext(Dispatchers.Default) {
                 repository.getEvent()
             }
-            try {
-                eventLiveData.value = events
-            }catch (exception: Exception) {
-                when(exception) {
-                    is HttpException -> {
-                        val jsonParsed = JSONObject(exception.response()?.errorBody().toString())
-                        val gson = Gson()
-                        val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
-
-                        eventLiveData.value = cException
-                    }
+                if(events.isSuccessful) {
+                    eventLiveData.value = events.body()
                 }
-            }
+                else {
+                    eventLiveData.value = CustomException::class.java
+                }
         }
     }
 
@@ -47,19 +40,7 @@ class HomeViewModel(private val repository: EventRepository): ViewModel() {
             val eventDetail = withContext(Dispatchers.Default) {
                 repository.getEventDetails(id)
             }
-            try {
                 eventDetailsLiveData.value = eventDetail
-            }catch (exception: Exception) {
-                when(exception) {
-                    is HttpException -> {
-                        val jsonParsed = JSONObject(exception.response()?.errorBody().toString())
-                        val gson = Gson()
-                        val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
-
-                        eventDetailsLiveData.value = cException
-                    }
-                }
-            }
         }
     }
 
@@ -69,6 +50,9 @@ class HomeViewModel(private val repository: EventRepository): ViewModel() {
                 repository.checkInEvent(checkIn)
             }
             try {
+
+                println("${checkInResponse.isSuccessful}  |  ${checkInResponse.message()} | ${checkInResponse.body()} | ${checkInResponse.code()}")
+
                 if(checkInResponse.code() != 200 || checkInResponse.code() != 204) {
                     checkInLiveData.value = checkInResponse.isSuccessful
                 }
