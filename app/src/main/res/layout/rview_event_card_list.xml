@@ -8,30 +8,29 @@
     android:layout_marginBottom="@dimen/default_margin"
     android:background="@drawable/layout_elevation">
 
-
     <TextView
         android:id="@+id/txtEventName"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
         android:layout_marginTop="@dimen/small_margin"
-        android:layout_marginEnd="@dimen/large_margin"
         android:maxLines="1"
         android:textColor="@color/text_title_color"
         android:textSize="@dimen/default_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEventTime"
         tools:text="Event Name" />
 
     <TextView
         android:id="@+id/txtEventDescription"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="@dimen/large_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
         android:maxLines="1"
         android:textColor="@color/text_extra_color"
         android:textSize="@dimen/small_text_size"
@@ -56,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_margin"
         android:layout_marginEnd="@dimen/large_margin"
-        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/small_margin"
         android:maxLines="1"
         android:textColor="@color/text_extra_color"
         android:textSize="@dimen/small_text_size"
@@ -70,14 +69,14 @@
         android:id="@+id/txtEventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/default_margin"
         android:maxLines="1"
         android:textColor="@color/text_extra_color"
-        android:textSize="12sp"
+        android:textSize="@dimen/small_date_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/txtEventTime"
         app:layout_constraintEnd_toStartOf="@+id/txtEventTime"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtEventName"
         app:layout_constraintTop_toTopOf="@+id/txtEventTime"
         tools:text="12/03/2020" />
 
@@ -85,25 +84,15 @@
         android:id="@+id/txtEventTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         android:maxLines="1"
-        android:text="12:30 PM"
         android:textColor="@color/text_extra_color"
-        android:textSize="12sp"
+        android:textSize="@dimen/small_date_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/match_constraint"
-        android:layout_marginStart="@dimen/small_margin"
-        app:layout_constraintBottom_toBottomOf="@+id/txtEventLocation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtEventName"
-        app:srcCompat="@drawable/ic_rectangle_19" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12:30 PM" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

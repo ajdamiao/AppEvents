@@ -38,13 +38,12 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
         val eventPrice = requireArguments().getString("eventPrice")
         val eventId = requireArguments().getString("id")
 
-        /*binding.btnCheckIn.setOnClickListener {
+        binding.btnCheckIn.setOnClickListener {
             if (eventId != null) {
                 doCheckIn(eventId)
                 util.hideKeyboard(requireContext(),requireView())
             }
         }
-*/
 
         setupEventCardInfo(eventName.toString(), eventPrice.toString(), eventImage.toString())
     }
@@ -104,7 +103,7 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
     }
 
     private fun doCheckIn(eventID: String) {
-        /*val email = binding.inputEmail.text.toString()
+        val email = binding.inputEmail.text.toString()
         val name = binding.inputName.text.toString()
 
         if(util.isEmailValid(email) && util.isNameValid(name)) {
@@ -112,6 +111,6 @@ class CheckInFragment : Fragment(R.layout.fragment_check_in) {
         }
         else {
             inputErrorDialog()
-        }*/
+        }
     }
 }
