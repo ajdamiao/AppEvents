@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.appevents.MainActivity
@@ -78,7 +77,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     }
 
     private fun setupEventInfo(response: Event) {
-        eventAddress = util.locationGetter(response.latitude, response.longitude, requireContext())
+        eventAddress = util.getEventLocation(response.latitude, response.longitude, requireContext())
         eventPrice = response.price
         eventName = response.title
         eventID = response.id

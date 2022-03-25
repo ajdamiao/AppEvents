@@ -16,7 +16,7 @@ class Util {
         return "${c[Calendar.DAY_OF_MONTH]}/${c[Calendar.MONTH]}/${c[Calendar.YEAR]}"
     }
 
-    fun locationGetter(latitude: Double, longitude: Double, context: Context): String {
+    fun getEventLocation(latitude: Double, longitude: Double, context: Context): String {
         val geocoder = Geocoder(context)
         val addresses = geocoder.getFromLocation(latitude, longitude, 1)
         return addresses[0].getAddressLine(0)

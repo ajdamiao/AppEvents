@@ -33,7 +33,7 @@ class EventsAdapter(private val events: ArrayList<Event>, private val context: C
                 c.timeInMillis = date
 
                 val date = util.dateFormatter(date)
-                val eventAddress = util.locationGetter(latitude, longitude, context)
+                val eventAddress = util.getEventLocation(latitude, longitude, context)
 
                 binding.txtEventLocation.text = eventAddress
                 binding.txtEventName.text = title
